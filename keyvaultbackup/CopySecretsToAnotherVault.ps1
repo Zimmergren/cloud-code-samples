@@ -14,34 +14,11 @@ az account set -s $originSubscriptionId
 Write-Host "Listing all origin secrets from vault: $($originVault)"
 $originSecretKeys = az keyvault secret list --vault-name $originVault  -o json --query "[].name"  | ConvertFrom-Json
 
-# 1.3 Loop secrets into PSCustomObjects, making it easy to work with later.
-$secretObjects = $originSecretKeys | ForEach-Object {
-    Write-Host " - Getting secret value for '$($_)'"
-    $secret = az keyvault secret show --name $_ --vault-name $originVault -o json | ConvertFrom-Json
-    
-    [PSCustomObject]@{
-        secretName  = $_;
-        secretValue = $secret.value;
-    }#endcustomobject.
-
-}#endforeach.
-
-Write-Host "Done fetching secrets..."
-
-# 2. Set the destination subscription id.
-Write-Host "Setting destination subscription to: $($destinationSubscriptionId)..."
-az account set -s $destinationSubscriptionId
-
-# 2.2 Loop secrets objects, and set secrets in destination vault
-Write-Host "Writing all destination secrets to vault: $($destinationVault)"
-$secretObjects | ForEach-Object {
-    Write-Host " - Setting secret value for '$($_.secretName)'"
-    az keyvault secret set --vault-name $destinationVault --name "$($_.secretName)" --value  "$($_.secretValue)" --disabled $disableDestinationSecrets -o none
+# 1.3 Loop the secrets, and push the value to the destination vault without instantiating new variables.
+$originSecretKeys | ForEach-Object {
+    $secretName = $_
+    Write-Host " - Getting '$($secretName)' from origin, and setting in destination..."
+    az keyvault secret set --name $secretName --vault-name $destinationVault -o none --value(az keyvault secret show --name $secretName --vault-name $originVault -o json --query "value")
 }
-
-# 3. Clean up
-Write-Host "Cleaning up and exiting."
-Remove-Variable secretObjects
-Remove-Variable originSecretKeys
 
 Write-Host "Finished."
