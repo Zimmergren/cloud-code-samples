@@ -13,3 +13,9 @@ This folder contains a basic script for copying secrets from one vault to anothe
 It's intended as a starter for how you can achieve this task, and you should carefully consider modifying it to fit your processes and security guidelines. 
 
 Read more: https://zimmergren.net/backup-azure-key-vault-secrets-keys-certificates/
+
+## BicepIntroduction
+
+This folder contain the basic templates used in a post about using Bicep.
+
+Read more: https://zimmergren.net/getting-started-azure-bicep
