@@ -6,17 +6,18 @@
     {
       "type": "Microsoft.KeyVault/vaults",
       "apiVersion": "2020-04-01-preview",
-      "location": "westeurope",
       "name": "myKeyVaultDemoFromBicep1",
+      "location": "westeurope",
       "tags": {
         "demo-delete": "true"
       },
       "properties": {
-        "tenantId": "YOUR TENANT GUID",
+        "tenantId": "[subscription().tenantId]",
         "sku": {
           "family": "A",
           "name": "standard"
-        }
+        },
+        "accessPolicies": []
       }
     }
   ],
@@ -33,8 +34,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.3.1.62928",
-      "templateHash": "14933814168945890403"
+      "version": "0.3.126.58533",
+      "templateHash": "1802761384726456213"
     }
   }
 }

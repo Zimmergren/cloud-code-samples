@@ -5,11 +5,13 @@ resource kv 'Microsoft.KeyVault/vaults@2020-04-01-preview' = {
     'demo-delete': 'true'
   }
   properties: {
-    tenantId: 'YOUR TENANT GUID'
+    tenantId: subscription().tenantId
     sku: {
       family: 'A'
       name: 'standard'
     }
+    accessPolicies: [
+    ]
   }
 }
 

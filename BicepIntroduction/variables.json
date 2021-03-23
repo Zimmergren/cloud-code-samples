@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectFriendlyName": {
+      "type": "string"
+    },
+    "resourceName": {
+      "type": "string",
+      "maxLength": 18,
+      "minLength": 3
+    },
+    "apiKey": {
+      "type": "secureString"
+    }
+  },
+  "functions": [],
+  "variables": {
+    "locationShortName": "weu",
+    "locationLongName": "westeurope",
+    "resourcesMetadata": {
+      "name": "[format('{{0}}-{0}-{1}', variables('locationShortName'), replace(parameters('resourceName'), '-', ''))]",
+      "location": "[variables('locationLongName')]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[replace(replace(variables('resourcesMetadata').name, '{0}', 'st'), '-', '')]",
+      "location": "[variables('resourcesMetadata').location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Standard_LRS"
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2019-09-01",
+      "name": "[replace(variables('resourcesMetadata').name, '{0}', 'kv')]",
+      "location": "[variables('resourcesMetadata').location]",
+      "tags": {
+        "demo-delete": "true"
+      },
+      "properties": {
+        "tenantId": "[subscription().tenantId]",
+        "sku": {
+          "family": "A",
+          "name": "standard"
+        },
+        "accessPolicies": []
+      }
+    }
+  ],
+  "outputs": {
+    "keyVaultUri": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.KeyVault/vaults', replace(variables('resourcesMetadata').name, '{0}', 'kv'))).vaultUri]"
+    },
+    "keyVaultSkuName": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.KeyVault/vaults', replace(variables('resourcesMetadata').name, '{0}', 'kv'))).sku.name]"
+    },
+    "storageAccountName": {
+      "type": "string",
+      "value": "[replace(replace(variables('resourcesMetadata').name, '{0}', 'st'), '-', '')]"
+    },
+    "storageAccountSku": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', replace(replace(variables('resourcesMetadata').name, '{0}', 'st'), '-', '')), '2019-06-01', 'full').sku.name]"
+    },
+    "deploymentResourceGroup": {
+      "type": "object",
+      "value": "[resourceGroup()]"
+    }
+  },
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.3.126.58533",
+      "templateHash": "7395639879680519569"
+    }
+  }
+}
