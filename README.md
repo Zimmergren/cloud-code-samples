@@ -1,6 +1,12 @@
 # Code Samples and Demos
 Collection of code samples from articles, blog posts, and more.
 
+## AuthenticatedApplicationInsights
+
+This folder contains sample code for sending authenticated requests to an Application Insights service that has disabled local authentication. 
+
+Read more: https://zimmergren.net/enforce-authentication-when-sending-application-insights-telemetry/
+
 ## ApplicationInsightsService
 
 This folder contains the basic code for filtering dependencies in your Application Insights services. 
