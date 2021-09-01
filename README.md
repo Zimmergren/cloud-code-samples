@@ -1,6 +1,14 @@
 # Code Samples and Demos
 Collection of code samples from articles, blog posts, and more.
 
+## ApplicationInsightsService
+
+This folder contains the basic code for filtering dependencies in your Application Insights services. 
+
+<!--<a href="https://zimmergren.net/excluding-failing-dependencies-from-application-insights-logging/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/appi-dep-2-2.png" width="400px"></a>-->
+
+- Read more: https://zimmergren.net/excluding-failing-dependencies-from-application-insights-logging/
+
 ## AuthenticatedApplicationInsights
 
 This folder contains sample code for sending authenticated requests to an Application Insights service that has disabled local authentication. 
@@ -9,13 +17,21 @@ This folder contains sample code for sending authenticated requests to an Applic
 
 - Read more: https://zimmergren.net/enforce-authentication-when-sending-application-insights-telemetry/
 
-## ApplicationInsightsService
+## AzureMonitorDeepLinking
 
-This folder contains the basic code for filtering dependencies in your Application Insights services. 
+Code sample for deep-linking Azure Log Analytics and Azure Application Insights queries. 
 
 <!--<a href="https://zimmergren.net/excluding-failing-dependencies-from-application-insights-logging/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/appi-dep-2-2.png" width="400px"></a>-->
 
-- Read more: https://zimmergren.net/excluding-failing-dependencies-from-application-insights-logging/
+- Read more: https://zimmergren.net/deep-linking-azure-log-analytics-and-app-insight-queries/
+
+## BicepIntroduction
+
+This folder contain the basic templates used in a post about using Bicep.
+
+<!--<a href="https://zimmergren.net/getting-started-azure-bicep/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/bicep-header.png" width="400px"></a>-->
+
+- Read more: https://zimmergren.net/getting-started-azure-bicep
 
 ## KeyVaultBackup
 
@@ -25,11 +41,3 @@ It's intended as a starter for how you can achieve this task, and you should car
 <!--<a href="https://zimmergren.net/backup-azure-key-vault-secrets-keys-certificates/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/kvbackup-header.png" width="400px"></a>-->
 
 - Read more: https://zimmergren.net/backup-azure-key-vault-secrets-keys-certificates/
-
-## BicepIntroduction
-
-This folder contain the basic templates used in a post about using Bicep.
-
-<!--<a href="https://zimmergren.net/getting-started-azure-bicep/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/bicep-header.png" width="400px"></a>-->
-
-- Read more: https://zimmergren.net/getting-started-azure-bicep
