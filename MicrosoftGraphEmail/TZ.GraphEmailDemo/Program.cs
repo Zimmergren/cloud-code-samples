@@ -24,13 +24,17 @@ var config = new ConfigurationBuilder()
 // NUGET: Azure.Identity
 //
 
+// IF YOU ARE USING A CLIENT ID / SECRET:
 // Define your credentials based on the created app and user details.
 // Specify the options. In most cases we're running the Azure Public Cloud.
 var credentials = new ClientSecretCredential(
-    config["GraphMail:TenantId"], 
-    config["GraphMail:ClientId"], 
+    config["GraphMail:TenantId"],
+    config["GraphMail:ClientId"],
     config["GraphMail:ClientSecret"],
     new TokenCredentialOptions { AuthorityHost = AzureAuthorityHosts.AzurePublicCloud });
+
+// IF YOU ARE USING MANAGED IDENTITY.
+//var credentials = new DefaultAzureCredential();
 
 // 
 // NUGET: Microsoft.Graph
