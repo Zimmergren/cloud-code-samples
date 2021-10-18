@@ -41,3 +41,11 @@ It's intended as a starter for how you can achieve this task, and you should car
 <!--<a href="https://zimmergren.net/backup-azure-key-vault-secrets-keys-certificates/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/kvbackup-header.png" width="400px"></a>-->
 
 - Read more: https://zimmergren.net/backup-azure-key-vault-secrets-keys-certificates/
+
+## MicrosoftGraphEmail/TZ.GraphEmailDemo
+
+This folder contains a .NET 6 console app for sending simple messages using the Microsoft Graph APIs.
+
+<!--<a href="https://zimmergren.net/sending-e-mails-using-microsoft-graph-using-dotnet/"><img src="https://zimmergren.net/content/images/size/w692/2021/10/graphmail-emailreceived2-2.png" width="400px"></a>-->
+
+- Read more: https://zimmergren.net/sending-e-mails-using-microsoft-graph-using-dotnet/
