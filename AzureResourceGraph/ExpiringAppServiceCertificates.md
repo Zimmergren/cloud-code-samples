@@ -53,3 +53,15 @@ resources
 | where ExpirationDate < now() + 60d
 | order by DaysUntilExpiration
 ```
+
+- Group by month for easy visualization:
+```kusto
+resources
+| where type == "microsoft.web/certificates"
+| extend ExpirationDate = todatetime(properties.expirationDate)
+| extend ExpirationYear = getyear(ExpirationDate)
+| extend ExpirationMonth = format_datetime(ExpirationDate, 'yyyy-MM')
+| extend DaysUntilExpiration = datetime_diff("day", ExpirationDate, now())
+| summarize count() by ExpirationMonth
+| order by ExpirationMonth asc
+```
