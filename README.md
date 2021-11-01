@@ -49,3 +49,12 @@ This folder contains a .NET 6 console app for sending simple messages using the 
 <!--<a href="https://zimmergren.net/sending-e-mails-using-microsoft-graph-using-dotnet/"><img src="https://zimmergren.net/content/images/size/w692/2021/10/graphmail-emailreceived2-2.png" width="400px"></a>-->
 
 - Read more: https://zimmergren.net/sending-e-mails-using-microsoft-graph-using-dotnet/
+
+## AzureResourceGraph
+
+In this folder, you'll find examples of Azure Resource Graph queries. 
+Currently, the examples are: 
+
+- ExpiringAppServiceCertificates: Queries to discover Azure App Certificates that are expiring soon.
+
+- Read more: https://zimmergren.net/discover-expiring-azure-app-services-certificates/
