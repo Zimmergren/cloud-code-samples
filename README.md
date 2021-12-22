@@ -25,6 +25,15 @@ Code sample for deep-linking Azure Log Analytics and Azure Application Insights 
 
 - Read more: https://zimmergren.net/deep-linking-azure-log-analytics-and-app-insight-queries/
 
+
+## AzureMonitorAlertRuleBicep
+
+Code sample for deploying alert rules in Bicep.
+
+<!--<a href="https://zimmergren.net/excluding-failing-dependencies-from-application-insights-logging/"><img src="https://zimmergren.net/content/images/size/w692/2021/03/appi-dep-2-2.png" width="400px"></a>-->
+
+- Read more: https://zimmergren.net/create-azure-monitor-alert-rules-with-bicep/
+
 ## BicepIntroduction
 
 This folder contain the basic templates used in a post about using Bicep.
