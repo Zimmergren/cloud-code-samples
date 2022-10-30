@@ -11,10 +11,10 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-      #- name: Run Microsoft Security DevOps Analysis
-      #  uses: microsoft/security-devops-action@preview
-      #  id: msdo
-      #- name: Upload alerts to Security tab
-      #  uses: github/codeql-action/upload-sarif@v1
-      #  with:
-      #    sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+      - name: Run Microsoft Security DevOps Analysis
+        uses: microsoft/security-devops-action@preview
+        id: msdo
+      - name: Upload alerts to Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
