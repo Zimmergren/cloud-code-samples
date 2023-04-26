@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging.ApplicationInsights;
 
 // DEMO ONLY: Don't put credentials in code - use Azure Key Vault, or applicable protected configuration services.
 // I am using the connection string in code for clarity and avoiding unnecessary logic that distracts from the focus of the demo.
-const string connectionString = "InstrumentationKey=9a53e1c4-6c7b-4186-8a5a-55710e9ddd7e;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/";
+const string connectionString = "InstrumentationKey=<GUID>;IngestionEndpoint=https://<endpoint>.in.applicationinsights.azure.com/;LiveEndpoint=https://<endpoint>.livediagnostics.monitor.azure.com/";
 
 #region Wire-up
 
