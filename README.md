@@ -59,6 +59,12 @@ This folder contains a .NET 6 console app for sending simple messages using the 
 
 - Read more: https://zimmergren.net/sending-e-mails-using-microsoft-graph-using-dotnet/
 
+## MicrosoftGraphEmail.Read
+
+This folder contains a .NET 6 app for reading e-mails using the Microsoft Graph APIs.
+
+- Read more: https://zimmergren.net/reading-emails-with-microsoft-graph-using-net/
+
 ## AzureResourceGraph
 
 In this folder, you'll find examples of Azure Resource Graph queries. 
