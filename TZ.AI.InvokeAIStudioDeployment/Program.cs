@@ -6,15 +6,26 @@ namespace CallRequestResponseService
 {
     class Program
     {
-        private static string apiKey;
+        private static string apiKey, deploymentModelName;
         static void Main(string[] args)
         {
+            // NOTE: For the demo code here, I'm using a secrets.json file that looks like this: 
+            /*
+             {
+              "aistudio-deployment-apikey": "your api key",
+              "aistudio-deployment-name": "your model name"
+             }
+
+            */
+
+
             // Build the configuration
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddUserSecrets<Program>()
                 .Build();
 
-            apiKey = configuration["apikey-tobias-3655"];
+            deploymentModelName = configuration["aistudio-deployment-name"];
+            apiKey = configuration["aistudio-deployment-apikey"];
 
             InvokeRequestResponseService().Wait();
         }
@@ -30,6 +41,7 @@ namespace CallRequestResponseService
             using (var client = new HttpClient(handler))
             {
                 Console.WriteLine("Enter any text to summarize. When you're done, hit Enter:");
+                Console.WriteLine("-------------------");
 
                 // For demo purposes.
                 // You should protect the strings and ensure proper encoding to accept more complext text, including quotation marks, etc.
@@ -53,10 +65,10 @@ namespace CallRequestResponseService
 
                 // This header will force the request to go to a specific deployment.
                 // Remove this line to have the request observe the endpoint traffic rules
-                content.Headers.Add("azureml-model-deployment", "human-centered-summarization-10");
+                content.Headers.Add("azureml-model-deployment", deploymentModelName);
 
                 HttpResponseMessage response = await client.PostAsync("", content);
-
+                
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
