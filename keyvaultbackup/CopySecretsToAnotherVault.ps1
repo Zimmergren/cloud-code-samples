@@ -17,7 +17,7 @@ $originSecretKeys = az keyvault secret list --vault-name $originVault  -o json -
 # 1.3 Loop the secrets, and push the value to the destination vault without instantiating new variables.
 $originSecretKeys | ForEach-Object {
     $secretName = $_
-    Write-Host " - Getting '$($secretName)' from origin, and setting in destination..."
+    Write-Host " - Getting '$($secretName)' from origin, and setting in destination Vault... '$($destinationVault)'"
     az keyvault secret set --name $secretName --vault-name $destinationVault -o none --value(az keyvault secret show --name $secretName --vault-name $originVault -o json --query "value")
 }
 
