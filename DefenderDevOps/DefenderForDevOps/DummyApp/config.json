@@ -1,0 +1,5 @@
+{
+  "azureConnectionStringDummy": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://sastestdummy.blob.core.windows.net/;QueueEndpoint=https://sastestdummy.queue.core.windows.net/;FileEndpoint=https://sastestdummy.file.core.windows.net/;TableEndpoint=https://sastestdummy.table.core.windows.net/",
+  "sasCredentialDummy": "BlobEndpoint=https://sastestdummy.blob.core.windows.net/;QueueEndpoint=https://sastestdummy.queue.core.windows.net/;FileEndpoint=https://sastestdummy.file.core.windows.net/;TableEndpoint=https://sastestdummy.table.core.windows.net/;SharedAccessSignature=sv=2021-06-08&ss=bfqt&srt=s&sp=rwdlacupiytfx&se=2022-11-01T02:08:27Z&st=2022-10-31T18:08:27Z&spr=https&sig=aEpff6lffaCfC2fiLvfOf%2FfP6f7rKyftJGfAdnfgf4wg%3D",
+  "awsDbDummy": "jdbc:postgresql://mydb.b5uacpxznijm.us-west-2.rds.amazonaws.com:5432/ebdb?user=username&password=mypassword"
+}
